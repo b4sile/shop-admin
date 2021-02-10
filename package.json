@@ -2,11 +2,16 @@
   "name": "admin",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
+    "prop-types": "^15.7.2",
+    "ra-data-json-server": "^3.12.1",
+    "ra-data-simple-rest": "^3.10.4",
     "react": "^17.0.1",
+    "react-admin": "^3.12.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
     "web-vitals": "^1.1.0"
