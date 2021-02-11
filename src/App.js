@@ -3,11 +3,18 @@ import simpleRestProvider from 'ra-data-simple-rest';
 import { UserList, UserEdit, UserCreate } from './users';
 import { CategoryCreate, CategoryList, CategoryEdit } from './categories';
 import { ProductCreate, ProductList, ProductEdit } from './products';
+import {
+  ProductMetaCreate,
+  ProductMetaList,
+  ProductMetaEdit,
+} from './productsMeta';
+import { CartList, CartEdit, CartCreate } from './carts';
+import { CartItemsList, CartItemsEdit, CartItemsCreate } from './cartItems';
 
 const dataProvider = simpleRestProvider('/api');
 
 const App = () => (
-  <Admin dataProvider={dataProvider}>
+  <Admin disableTelemetry dataProvider={dataProvider}>
     <Resource
       name="users"
       list={UserList}
@@ -25,6 +32,24 @@ const App = () => (
       list={ProductList}
       edit={ProductEdit}
       create={ProductCreate}
+    />
+    <Resource
+      name="carts"
+      list={CartList}
+      edit={CartEdit}
+      create={CartCreate}
+    />
+    <Resource
+      name="items"
+      list={CartItemsList}
+      edit={CartItemsEdit}
+      create={CartItemsCreate}
+    />
+    <Resource
+      name="productsMeta"
+      list={ProductMetaList}
+      edit={ProductMetaEdit}
+      create={ProductMetaCreate}
     />
   </Admin>
 );
