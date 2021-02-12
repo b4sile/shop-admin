@@ -12,10 +12,17 @@ import {
   DateInput,
   BooleanInput,
   Create,
+  Filter,
 } from 'react-admin';
 
+const UserFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Search" source="email" alwaysOn />
+  </Filter>
+);
+
 export const UserList = (props) => (
-  <List {...props}>
+  <List filters={<UserFilter />} {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="firstName" />

@@ -13,10 +13,25 @@ import {
   ReferenceInput,
   NumberInput,
   NumberField,
+  Filter,
 } from 'react-admin';
 
+const ProductMetaFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Search" source="size" alwaysOn />
+    <ReferenceInput
+      label="Product"
+      source="productId"
+      reference="products"
+      allowEmpty
+    >
+      <SelectInput optionText="title" />
+    </ReferenceInput>
+  </Filter>
+);
+
 export const ProductMetaList = (props) => (
-  <List {...props}>
+  <List filters={<ProductMetaFilter />} {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="size" />

@@ -10,6 +10,8 @@ import {
 } from './productsMeta';
 import { CartList, CartEdit, CartCreate } from './carts';
 import { CartItemsList, CartItemsEdit, CartItemsCreate } from './cartItems';
+import { OrderList, OrderEdit, OrderCreate } from './orders';
+import { OrderItemsList, OrderItemsEdit, OrderItemsCreate } from './orderItems';
 
 const dataProvider = simpleRestProvider('/api');
 
@@ -40,7 +42,7 @@ const App = () => (
       create={CartCreate}
     />
     <Resource
-      name="items"
+      name="cart-items"
       list={CartItemsList}
       edit={CartItemsEdit}
       create={CartItemsCreate}
@@ -50,6 +52,18 @@ const App = () => (
       list={ProductMetaList}
       edit={ProductMetaEdit}
       create={ProductMetaCreate}
+    />
+    <Resource
+      name="orders"
+      list={OrderList}
+      edit={OrderEdit}
+      create={OrderCreate}
+    />
+    <Resource
+      name="order-items"
+      list={OrderItemsList}
+      edit={OrderItemsEdit}
+      create={OrderItemsCreate}
     />
   </Admin>
 );

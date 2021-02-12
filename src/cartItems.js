@@ -14,10 +14,20 @@ import {
   SelectInput,
   NumberField,
   NumberInput,
+  Filter,
 } from 'react-admin';
 
+const CartItemFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Search" source="id" alwaysOn />
+    <ReferenceInput label="CartId" source="cartId" reference="carts" allowEmpty>
+      <SelectInput optionText="id" />
+    </ReferenceInput>
+  </Filter>
+);
+
 export const CartItemsList = (props) => (
-  <List {...props}>
+  <List filters={<CartItemFilter />} {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <ReferenceField source="cartId" reference="carts">

@@ -11,26 +11,31 @@ import {
   ReferenceField,
   SelectInput,
   ReferenceInput,
-  ArrayField,
-  ArrayInput,
-  SimpleFormIterator,
-  NumberInput,
+  Filter,
 } from 'react-admin';
 
+const ProductFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Search" source="title" alwaysOn />
+    <ReferenceInput
+      label="Category"
+      source="categoryId"
+      reference="categories"
+      allowEmpty
+    >
+      <SelectInput optionText="name" />
+    </ReferenceInput>
+  </Filter>
+);
+
 export const ProductList = (props) => (
-  <List {...props}>
+  <List filters={<ProductFilter />} {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="title" />
       <TextField source="description" />
       <TextField source="price" />
       <TextField source="discount" />
-      <ArrayField source="product_meta">
-        <Datagrid>
-          <TextField source="size" />
-          <TextField source="quantity" />
-        </Datagrid>
-      </ArrayField>
       <DateField source="createdAt" />
       <DateField source="updatedAt" />
       <ReferenceField source="categoryId" reference="categories">
@@ -47,14 +52,6 @@ export const ProductEdit = (props) => (
       <ReferenceInput source="categoryId" reference="categories">
         <SelectInput optionText="name" />
       </ReferenceInput>
-      <ArrayInput source="product_meta">
-        <SimpleFormIterator>
-          <TextInput disabled source="id" />
-          <TextInput disabled source="productId" />
-          <TextInput source="size" />
-          <NumberInput source="quantity" />
-        </SimpleFormIterator>
-      </ArrayInput>
       <TextInput source="title" />
       <TextInput source="description" />
       <TextInput source="price" />
@@ -69,12 +66,6 @@ export const ProductCreate = (props) => (
       <ReferenceInput source="categoryId" reference="categories">
         <SelectInput optionText="name" />
       </ReferenceInput>
-      <ArrayInput source="product_meta">
-        <SimpleFormIterator>
-          <TextInput source="size" />
-          <NumberInput source="quantity" />
-        </SimpleFormIterator>
-      </ArrayInput>
       <TextInput source="title" />
       <TextInput source="description" />
       <TextInput source="price" />
