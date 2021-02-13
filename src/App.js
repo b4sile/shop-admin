@@ -1,5 +1,5 @@
 import { Admin, Resource } from 'react-admin';
-import simpleRestProvider from 'ra-data-simple-rest';
+import myDataProvider from './dataProvider';
 import { UserList, UserEdit, UserCreate } from './users';
 import { CategoryCreate, CategoryList, CategoryEdit } from './categories';
 import { ProductCreate, ProductList, ProductEdit } from './products';
@@ -12,11 +12,10 @@ import { CartList, CartEdit, CartCreate } from './carts';
 import { CartItemsList, CartItemsEdit, CartItemsCreate } from './cartItems';
 import { OrderList, OrderEdit, OrderCreate } from './orders';
 import { OrderItemsList, OrderItemsEdit, OrderItemsCreate } from './orderItems';
-
-const dataProvider = simpleRestProvider('/api');
+import { ImageList, ImageEdit, ImageCreate } from './images';
 
 const App = () => (
-  <Admin disableTelemetry dataProvider={dataProvider}>
+  <Admin disableTelemetry dataProvider={myDataProvider}>
     <Resource
       name="users"
       list={UserList}
@@ -64,6 +63,12 @@ const App = () => (
       list={OrderItemsList}
       edit={OrderItemsEdit}
       create={OrderItemsCreate}
+    />
+    <Resource
+      name="images"
+      list={ImageList}
+      edit={ImageEdit}
+      create={ImageCreate}
     />
   </Admin>
 );
