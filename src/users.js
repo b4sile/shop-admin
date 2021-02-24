@@ -13,7 +13,13 @@ import {
   BooleanInput,
   Create,
   Filter,
+  SelectInput,
 } from 'react-admin';
+
+import { required, minLength, email } from 'react-admin';
+
+const validateEmail = [required(), email()];
+const validateField = [required(), minLength(4)];
 
 const UserFilter = (props) => (
   <Filter {...props}>
@@ -41,11 +47,17 @@ export const UserEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
-      <TextInput source="firstName" />
-      <TextInput source="lastName" />
-      <TextInput source="email" />
-      <TextInput source="password" />
-      <TextInput source="role" />
+      <TextInput source="firstName" validate={validateField} />
+      <TextInput source="lastName" validate={validateField} />
+      <TextInput source="email" type="email" validate={validateEmail} />
+      <TextInput source="password" validate={validateField} />
+      <SelectInput
+        source="role"
+        choices={[
+          { id: 'Admin', name: 'Admin' },
+          { id: 'User', name: 'User' },
+        ]}
+      />
       <BooleanInput source="confirmed" />
       <DateInput source="createdAt" />
       <DateInput source="updatedAt" />
@@ -56,10 +68,10 @@ export const UserEdit = (props) => (
 export const UserCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="firstName" />
-      <TextInput source="lastName" />
-      <TextInput source="email" />
-      <TextInput source="password" />
+      <TextInput source="firstName" validate={validateField} />
+      <TextInput source="lastName" validate={validateField} />
+      <TextInput source="email" type="email" validate={validateEmail} />
+      <TextInput source="password" validate={validateField} />
     </SimpleForm>
   </Create>
 );

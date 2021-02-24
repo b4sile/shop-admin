@@ -13,9 +13,18 @@ import { CartItemsList, CartItemsEdit, CartItemsCreate } from './cartItems';
 import { OrderList, OrderEdit, OrderCreate } from './orders';
 import { OrderItemsList, OrderItemsEdit, OrderItemsCreate } from './orderItems';
 import { ImageList, ImageEdit, ImageCreate } from './images';
+import { authProvider } from './authProvider';
+import MyLoginPage from './MyLoginPage';
+import MyLogoutButton from './MyLogoutButton';
 
 const App = () => (
-  <Admin disableTelemetry dataProvider={myDataProvider}>
+  <Admin
+    disableTelemetry
+    dataProvider={myDataProvider}
+    authProvider={authProvider}
+    loginPage={MyLoginPage}
+    logoutButton={MyLogoutButton}
+  >
     <Resource
       name="users"
       list={UserList}

@@ -1,11 +1,18 @@
 import simpleRestProvider from 'ra-data-simple-rest';
 import { fetchUtils } from 'react-admin';
 
-const httpClient = fetchUtils.fetchJson;
+const httpClient = (url, options = {}) => {
+  if (!options.headers) {
+    options.headers = new Headers({ Accept: 'application/json' });
+  }
+  const { token } = JSON.parse(localStorage.getItem('auth'));
+  options.headers.set('Authorization', `Bearer ${token}`);
+  return fetchUtils.fetchJson(url, options);
+};
 
 const rootApi = '/api';
 
-const dataProvider = simpleRestProvider(rootApi);
+const dataProvider = simpleRestProvider(rootApi, httpClient);
 
 const myDataProvider = {
   ...dataProvider,
