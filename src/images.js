@@ -19,6 +19,8 @@ import {
   TextInput,
 } from 'react-admin';
 
+import { required } from 'react-admin';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useImageFieldStyles = makeStyles((theme) => ({
@@ -76,7 +78,7 @@ export const ImageCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <ReferenceInput source="productId" reference="products">
-        <SelectInput optionText="title" />
+        <SelectInput optionText="title" validate={[required()]} />
       </ReferenceInput>
       <BooleanInput source="isTitleImage" />
       <ImageInput multiple source="images" accept="image/*">

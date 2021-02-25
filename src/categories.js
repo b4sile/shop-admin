@@ -7,9 +7,10 @@ import {
   SimpleForm,
   TextInput,
   Create,
-  DateInput,
   DateField,
 } from 'react-admin';
+
+import { required } from 'react-admin';
 
 export const CategoryList = (props) => (
   <List {...props}>
@@ -26,9 +27,7 @@ export const CategoryEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
-      <TextInput source="name" />
-      <DateInput source="createdAt" />
-      <DateInput source="updatedAt" />
+      <TextInput source="name" validate={[required()]} />
     </SimpleForm>
   </Edit>
 );
@@ -36,7 +35,7 @@ export const CategoryEdit = (props) => (
 export const CategoryCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="name" />
+      <TextInput source="name" validate={[required()]} />
     </SimpleForm>
   </Create>
 );

@@ -16,6 +16,8 @@ import {
   Filter,
 } from 'react-admin';
 
+import { required } from 'react-admin';
+
 const OrderItemFilter = (props) => (
   <Filter {...props}>
     <TextInput label="Search" source="title" alwaysOn />
@@ -57,17 +59,17 @@ export const OrderItemsEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <ReferenceInput source="orderId" reference="orders">
-        <SelectInput optionText="id" />
+        <SelectInput optionText="id" validate={[required()]} />
       </ReferenceInput>
       <ReferenceInput source="productMetumId" reference="productsMeta">
         <SelectInput optionText="id" />
       </ReferenceInput>
-      <TextInput source="size" />
-      <TextInput source="title" />
-      <TextInput source="description" />
-      <NumberInput source="quantity" />
-      <NumberInput source="price" />
-      <NumberInput source="discount" />
+      <TextInput source="size" validate={[required()]} />
+      <TextInput source="title" validate={[required()]} />
+      <TextInput source="description" validate={[required()]} />
+      <NumberInput source="quantity" validate={[required()]} />
+      <NumberInput source="price" validate={[required()]} />
+      <NumberInput source="discount" validate={[required()]} />
     </SimpleForm>
   </Edit>
 );
@@ -76,17 +78,17 @@ export const OrderItemsCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <ReferenceInput source="orderId" reference="orders">
-        <SelectInput optionText="id" />
+        <SelectInput optionText="id" validate={[required()]} />
       </ReferenceInput>
       <ReferenceInput source="productMetumId" reference="productsMeta">
         <SelectInput optionText="id" />
       </ReferenceInput>
-      <TextInput source="size" />
-      <TextInput source="title" />
-      <TextInput source="description" />
-      <NumberInput source="quantity" />
-      <NumberInput source="price" />
-      <NumberInput source="discount" />
+      <TextInput source="size" validate={[required()]} />
+      <TextInput source="title" validate={[required()]} />
+      <TextInput source="description" validate={[required()]} />
+      <NumberInput source="quantity" validate={[required()]} />
+      <NumberInput source="price" validate={[required()]} />
+      <NumberInput source="discount" validate={[required()]} />
     </SimpleForm>
   </Create>
 );

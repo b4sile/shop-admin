@@ -9,7 +9,6 @@ import {
   Edit,
   SimpleForm,
   TextInput,
-  DateInput,
   BooleanInput,
   Create,
   Filter,
@@ -59,8 +58,6 @@ export const UserEdit = (props) => (
         ]}
       />
       <BooleanInput source="confirmed" />
-      <DateInput source="createdAt" />
-      <DateInput source="updatedAt" />
     </SimpleForm>
   </Edit>
 );

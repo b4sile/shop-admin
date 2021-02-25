@@ -32,7 +32,7 @@ const MyLoginPage = ({ theme }) => {
           <TextField
             variant="filled"
             name="email"
-            label="email"
+            label="Почта"
             type="email"
             required
             value={email}
@@ -40,7 +40,7 @@ const MyLoginPage = ({ theme }) => {
           />
           <TextField
             variant="filled"
-            label="password"
+            label="Пароль"
             name="password"
             type="password"
             required
@@ -48,7 +48,7 @@ const MyLoginPage = ({ theme }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button color="primary" variant="contained" type="submit">
-            LOgin
+            Войти
           </Button>
         </form>
       </div>

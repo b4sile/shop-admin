@@ -7,7 +7,6 @@ import {
   SimpleForm,
   TextInput,
   Create,
-  DateInput,
   DateField,
   ReferenceField,
   ReferenceInput,
@@ -16,6 +15,8 @@ import {
   NumberInput,
   Filter,
 } from 'react-admin';
+
+import { required } from 'react-admin';
 
 const CartItemFilter = (props) => (
   <Filter {...props}>
@@ -48,14 +49,12 @@ export const CartItemsEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <ReferenceInput source="cartId" reference="carts">
-        <SelectInput optionText="id" />
+        <SelectInput optionText="id" validate={[required()]} />
       </ReferenceInput>
       <ReferenceInput source="productMetumId" reference="productsMeta">
-        <SelectInput optionText="id" />
+        <SelectInput optionText="id" validate={[required()]} />
       </ReferenceInput>
-      <NumberInput source="quantity" />
-      <DateInput source="createdAt" />
-      <DateInput source="updatedAt" />
+      <NumberInput validate={[required()]} source="quantity" />
     </SimpleForm>
   </Edit>
 );
@@ -64,12 +63,12 @@ export const CartItemsCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <ReferenceInput source="cartId" reference="carts">
-        <SelectInput optionText="id" />
+        <SelectInput optionText="id" validate={[required()]} />
       </ReferenceInput>
       <ReferenceInput source="product_metaId" reference="productsMeta">
-        <SelectInput optionText="id" />
+        <SelectInput optionText="id" validate={[required()]} />
       </ReferenceInput>
-      <NumberInput source="quantity" />
+      <NumberInput source="quantity" validate={[required()]} />
     </SimpleForm>
   </Create>
 );

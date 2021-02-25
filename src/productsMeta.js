@@ -16,6 +16,8 @@ import {
   Filter,
 } from 'react-admin';
 
+import { required } from 'react-admin';
+
 const ProductMetaFilter = (props) => (
   <Filter {...props}>
     <TextInput label="Search" source="size" alwaysOn />
@@ -50,10 +52,10 @@ export const ProductMetaEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <ReferenceInput source="productId" reference="products">
-        <SelectInput optionText="title" />
+        <SelectInput validate={[required()]} optionText="title" />
       </ReferenceInput>
-      <TextInput source="size" />
-      <NumberInput source="quantity" />
+      <TextInput validate={[required()]} source="size" />
+      <NumberInput defaultValue={0} validate={[required()]} source="quantity" />
     </SimpleForm>
   </Edit>
 );
@@ -62,10 +64,10 @@ export const ProductMetaCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <ReferenceInput source="productId" reference="products">
-        <SelectInput optionText="title" />
+        <SelectInput optionText="title" validate={[required()]} />
       </ReferenceInput>
-      <TextInput source="size" />
-      <NumberInput source="quantity" />
+      <TextInput validate={[required()]} source="size" />
+      <NumberInput source="quantity" defaultValue={0} validate={[required()]} />
     </SimpleForm>
   </Create>
 );

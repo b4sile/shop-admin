@@ -8,13 +8,14 @@ import {
   Edit,
   SimpleForm,
   TextInput,
-  DateInput,
   ReferenceInput,
   Create,
   ReferenceField,
   NumberInput,
   SelectInput,
 } from 'react-admin';
+
+import { required } from 'react-admin';
 
 export const OrderList = (props) => (
   <List {...props}>
@@ -35,13 +36,11 @@ export const OrderEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
-      <TextInput source="status" />
-      <NumberInput source="amount" />
+      <TextInput source="status" validate={[required()]} />
+      <NumberInput source="amount" validate={[required()]} />
       <ReferenceInput source="userId" reference="users">
-        <SelectInput optionText="email" />
+        <SelectInput optionText="email" validate={[required()]} />
       </ReferenceInput>
-      <DateInput source="createdAt" />
-      <DateInput source="updatedAt" />
     </SimpleForm>
   </Edit>
 );
@@ -50,10 +49,10 @@ export const OrderCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <ReferenceInput source="userId" reference="users">
-        <SelectInput optionText="email" />
+        <SelectInput optionText="email" validate={[required()]} />
       </ReferenceInput>
-      <TextInput source="status" />
-      <NumberInput source="amount" />
+      <TextInput source="status" validate={[required()]} />
+      <NumberInput source="amount" validate={[required()]} />
     </SimpleForm>
   </Create>
 );

@@ -7,12 +7,13 @@ import {
   SimpleForm,
   TextInput,
   Create,
-  DateInput,
   DateField,
   ReferenceField,
   ReferenceInput,
   SelectInput,
 } from 'react-admin';
+
+import { required } from 'react-admin';
 
 export const CartList = (props) => (
   <List {...props}>
@@ -32,10 +33,8 @@ export const CartEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <ReferenceInput source="userId" reference="users">
-        <SelectInput optionText="email" />
+        <SelectInput validate={[required()]} optionText="email" />
       </ReferenceInput>
-      <DateInput source="createdAt" />
-      <DateInput source="updatedAt" />
     </SimpleForm>
   </Edit>
 );
@@ -44,7 +43,7 @@ export const CartCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <ReferenceInput source="userId" reference="users">
-        <SelectInput optionText="email" />
+        <SelectInput optionText="email" validate={[required()]} />
       </ReferenceInput>
     </SimpleForm>
   </Create>

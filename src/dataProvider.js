@@ -17,10 +17,11 @@ const dataProvider = simpleRestProvider(rootApi, httpClient);
 const myDataProvider = {
   ...dataProvider,
   create: (resource, params) => {
-    if (resource !== 'images' || !params.data.images) {
+    if (resource !== 'images') {
       return dataProvider.create(resource, params);
     }
     const { images, isTitleImage, productId } = params.data;
+    if (!images) return Promise.reject('Виберите фотографии');
     const formData = new FormData();
     images.forEach(({ rawFile }) => formData.append('images', rawFile));
 
