@@ -3,7 +3,6 @@ import {
   List,
   Datagrid,
   TextField,
-  DateField,
   Edit,
   SimpleForm,
   TextInput,
@@ -48,8 +47,6 @@ export const OrderItemsList = (props) => (
       <ReferenceField source="productMetumId" reference="productsMeta">
         <TextField source="id" />
       </ReferenceField>
-      <DateField source="createdAt" />
-      <DateField source="updatedAt" />
     </Datagrid>
   </List>
 );

@@ -7,7 +7,6 @@ import {
   SimpleForm,
   TextInput,
   Create,
-  DateField,
   ReferenceField,
   ReferenceInput,
   SelectInput,
@@ -38,8 +37,6 @@ export const CartItemsList = (props) => (
         <TextField source="id" />
       </ReferenceField>
       <NumberField source="quantity" />
-      <DateField source="createdAt" />
-      <DateField source="updatedAt" />
     </Datagrid>
   </List>
 );

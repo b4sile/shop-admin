@@ -48,7 +48,7 @@ const App = () => (
     />
     <Resource
       name="products"
-      options={{ label: 'Товары' }}
+      options={{ label: 'Описание товаров' }}
       list={ProductList}
       edit={ProductEdit}
       create={ProductCreate}
@@ -69,7 +69,7 @@ const App = () => (
     />
     <Resource
       name="productsMeta"
-      options={{ label: 'Информация о товарах' }}
+      options={{ label: 'Товарные единицы' }}
       list={ProductMetaList}
       edit={ProductMetaEdit}
       create={ProductMetaCreate}

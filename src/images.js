@@ -4,7 +4,6 @@ import {
   Datagrid,
   TextField,
   NumberField,
-  DateField,
   SimpleForm,
   ReferenceInput,
   Create,
@@ -59,8 +58,6 @@ export const ImageList = (props) => {
         <ReferenceField source="productId" reference="products">
           <TextField source="title" />
         </ReferenceField>
-        <DateField source="createdAt" />
-        <DateField source="updatedAt" />
       </Datagrid>
     </List>
   );

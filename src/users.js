@@ -33,7 +33,6 @@ export const UserList = (props) => (
       <TextField source="firstName" />
       <TextField source="lastName" />
       <EmailField source="email" />
-      <TextField source="password" />
       <TextField source="role" />
       <BooleanField source="confirmed" />
       <DateField source="createdAt" />
@@ -49,7 +48,6 @@ export const UserEdit = (props) => (
       <TextInput source="firstName" validate={validateField} />
       <TextInput source="lastName" validate={validateField} />
       <TextInput source="email" type="email" validate={validateEmail} />
-      <TextInput source="password" validate={validateField} />
       <SelectInput
         source="role"
         choices={[
