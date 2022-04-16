@@ -76,7 +76,12 @@ export const ProductCreate = (props) => (
         <SelectInput optionText="name" validate={[required()]} />
       </ReferenceInput>
       <TextInput source="title" validate={[required()]} />
-      <TextInput source="description" validate={[required()]} />
+      <TextInput
+        source="description"
+        validate={[required()]}
+        fullWidth
+        multiline
+      />
       <NumberInput source="price" validate={[required()]} />
       <NumberInput source="discount" defaultValue={0} validate={[required()]} />
     </SimpleForm>
